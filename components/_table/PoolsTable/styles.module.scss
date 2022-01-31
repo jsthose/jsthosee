@@ -1,0 +1,69 @@
+@import "/styles/main.scss";
+
+.styled_table {
+  border-radius: 2rem;
+  bottom: 0;
+  box-shadow: 0.01rem 0.01rem 0.1rem $lochmara;
+  background-color: #ececec;
+  margin: 2rem 0.5rem;
+  height: 68vh;
+
+  thead tr {
+    color: $pickled-bluewood;
+    border-radius: 3rem;
+  }
+
+  td,
+  th,
+  tr {
+    padding: 1rem;
+  }
+
+  tbody tr {
+    border-bottom: 0.01rem solid $lochmara;
+
+    &.active_row:hover {
+      cursor: pointer;
+      transition: 1s;
+
+      &:nth-of-type(odd) {
+        background-color: rgba(0, 136, 204, 0.4);
+        cursor: pointer;
+      }
+
+      &:nth-of-type(even) {
+        background-color: rgba(206, 206, 206);
+      }
+    }
+
+    &:nth-of-type(odd) {
+      background-color: rgba(0, 136, 204, 0.2);
+    }
+
+    &:nth-of-type(even) {
+      background-color: rgba(206, 206, 206, 0.2);
+    }
+  }
+
+  .show_wrapper {
+    display: inline-block;
+
+    input {
+      border: 0.1rem solid $lochmara;
+      border-radius: 3rem;
+      color: $pickled-bluewood;
+      display: inline-block;
+
+      max-width: 5rem;
+      padding: 0.5rem 0 0.5rem 2rem;
+
+      &:focus {
+        color: $lochmara;
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    margin: 0.5rem 0.1rem;
+  }
+}

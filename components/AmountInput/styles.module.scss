@@ -1,0 +1,18 @@
+@import "/styles/main.scss";
+
+.form {
+  display: block;
+  padding-left: 0.5rem;
+
+  input {
+    border: 0.1rem solid $lochmara;
+    border-radius: 3rem;
+    color: $pickled-bluewood;
+    display: inline-block;
+    width: 5rem;
+
+    &:focus {
+      color: $lochmara;
+    }
+  }
+}

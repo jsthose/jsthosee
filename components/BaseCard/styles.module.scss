@@ -1,0 +1,71 @@
+@import "/styles/main.scss";
+
+.card {
+  border-radius: 2rem;
+  border: 0.1rem solid $lochmara;
+  left: calc(50% - 20rem);
+  transition: 1s;
+  width: 40rem;
+
+  @media (max-width: 767px) {
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  &:hover {
+    border-radius: 3rem;
+  }
+
+  section {
+    padding: 1rem 4rem 2rem;
+
+    @media (max-width: 767px) {
+      padding: 1rem 0.25rem 1rem;
+    }
+  }
+
+  .button {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .header {
+    border-bottom: 0.1rem solid $lochmara;
+    color: $lochmara;
+    margin: 0 auto;
+    text-align: center;
+    width: 40%;
+  }
+
+  .horizontal_line {
+    border-top: 0.1rem solid $lochmara;
+    margin: 2rem auto 1.5rem;
+    text-align: center;
+    width: 90%;
+  }
+
+  .link_to_open_dialog {
+    border: none;
+    transition: 0.5s;
+
+    &:before {
+      content: url("/settings.svg");
+    }
+
+    &:focus,
+    &:hover {
+      transform: translateY(-0.1rem);
+    }
+  }
+
+  .menu {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+  }
+
+  .subtitle {
+    padding-top: 0.25rem;
+    text-align: center;
+  }
+}

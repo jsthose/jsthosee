@@ -1,0 +1,81 @@
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin animation($animation, $duration, $timing, $delay, $iteration) {
+  animation-delay: $delay;
+  animation-duration: $duration;
+  animation-iteration-count: $iteration;
+  animation-name: $animation;
+  animation-timing-function: $timing;
+}
+
+@mixin button($bcolor, $url, $x1, $y1, $col) {
+  background: $bcolor;
+  -webkit-mask: url($url);
+  mask: url($url);
+  -webkit-mask-size: $x1 $y1;
+  mask-size: $x1 $y1;
+  color: $col;
+}
+
+@mixin fluid-typography($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(
+          #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+            ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
+        );
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+@mixin toggle_transition {
+  transition: all 0.2s ease-in 0s;
+}
+
+@mixin transform($value) {
+  -webkit-transform: $value;
+  -ms-transform: $value;
+  transform: $value;
+}
+
+@mixin burger {
+  border: 0;
+  border-top: 0.1rem solid $lochmara;
+  cursor: crosshair;
+  height: 2rem;
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+  transition: 0.5s transform linear;
+  width: 2rem;
+  z-index: 2;
+
+  &::after {
+    transform: rotate(-90deg);
+  }
+
+  &::after,
+  &::before {
+    border-top: 0.1rem solid $lochmara;
+    content: "";
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: 0.5s transform linear;
+    width: 100%;
+    z-index: 2;
+  }
+}

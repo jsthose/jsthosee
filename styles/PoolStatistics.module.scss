@@ -1,0 +1,14 @@
+@import "./main.scss";
+
+.pools_info {
+  p {
+    color: $pickled-bluewood;
+  }
+
+  .label {
+    color: $lochmara;
+
+    font-weight: bold;
+    margin-top: 0.25rem;
+  }
+}

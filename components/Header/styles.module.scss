@@ -1,0 +1,108 @@
+@import "/styles/main.scss";
+
+nav.navbar {
+  background-color: white;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+  vertical-align: middle;
+  width: 100vw;
+
+  a span {
+    font-weight: 600;
+    padding-left: 0.5rem;
+    vertical-align: middle;
+  }
+
+  a,
+  .nav_link {
+    padding: 0 0.5rem;
+  }
+
+  .highlighted {
+    color: $pickled-bluewood;
+    display: inline-block;
+
+    &:hover {
+      color: $pickled-bluewood;
+      cursor: not-allowed;
+    }
+  }
+
+  .main_burger {
+    @media (min-width: 992px) {
+      display: none;
+    }
+  }
+
+  .nav_link {
+    color: $lochmara;
+    display: block;
+    transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
+
+    &:hover {
+      color: $pickled-bluewood;
+    }
+  }
+
+  // Center Dark/Light theme toggle switch on mobile.
+  [class*="styles_label"] {
+    margin: 0;
+  }
+}
+
+.open {
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: 10;
+  left: 0;
+  background-color: white;
+}
+
+.open_logo {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+
+  span {
+    display: block;
+    margin-right: 0.5rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .highlighted,
+  .nav_link {
+    margin: 3rem;
+  }
+
+  .main_burger {
+    @include burger;
+
+    &::after {
+      transform: translateY(1.25rem);
+    }
+
+    &::before {
+      transform: translateY(0.5rem);
+    }
+  }
+
+  // TODO: Maybe show an animation when hamburger menu items pops up.
+  .main_burger_focus {
+    @include burger;
+
+    border: none;
+    transform: rotate(45deg) translateY(0.5rem);
+  }
+}
+
+@media (max-width: 767px) {
+  .highlighted,
+  .nav_link {
+    margin: 2rem;
+  }
+}
